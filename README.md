@@ -42,17 +42,17 @@ nodes and accounts. I can name the network anything I want, have fun with it!
 
 
 
-## Instructions
+## **Instructions**
 
-### Setup the custom out-of-the-box blockchain
+### **Setup the custom out-of-the-box blockchain**
 
 1. Download the geth-alltools-windows-amd64-1.9.7-a718daa6 from internet, which will contain the different executables required for this exercise. Once downloaded, unzip. Using Git Bash, navigate to the folder where you have saved the geth-alltools-windows-amd64-1.9.7-a718daa6
 
 2. Create a new project directory for new network. Here I have called it "week18homework"
 
-3.  Create a "Screenshots" folder inside of the project directory.
+3. Create a "Screenshots" folder inside of the project directory.
 
-4. Create accounts for two (or more) nodes for the network with a separate `datadir` for each using `geth` as shown with the two commands. For now we will create two accounts, there will be instructions later to add more should we choose to.
+4. Create accounts for two (or more) nodes for the network with a separate `datadir` for each using `geth` as shown with the two commands. For now we will create two accounts, there will be instructions later to add more should we choose to. When setting the password, please don't forget it as it will be used later on when initialising the nodes and importing into MetaMask.
 
 > ./geth --datadir week18homework/node1 account new
 
@@ -60,12 +60,15 @@ nodes and accounts. I can name the network anything I want, have fun with it!
 
 ![create-nodes](Screenshots/initialiseNode1-2.jpg)
 
+
+
+
 * You can simply run the code above to a create a new node should you need one.
 
 5. Run `puppeth`, using './puppeth' in Git Bash I have named, and select the option to configure a new genesis block.
 
 
-![puppeth](Screenshots/create_json.jpg)
+
 
 
 6. When asked about Creating a new genesis from scratch select 1. 
@@ -76,7 +79,7 @@ nodes and accounts. I can name the network anything I want, have fun with it!
 
 9. When asked about the accounts are allowed to seal, paste both account addresses from the first step four at a time into the list of accounts to seal. Be careful with the prompt already provide '0x', don't just simply copy and paste the account.
 
-10. Paste them again in the list of accounts to pre-fund. There are no block rewards in PoA, so you'll need to pre-fund. Paste the account for Node1.
+10. Paste them again in the list of accounts to pre-fund. I have decided to use only Node1 as pre-funded so that I can see other accounts having ETH in it start with zero balance.
 
 11. You can choose `no` for pre-funding the pre-compiled accounts (0x1 .. 0xff) with wei. This keeps the genesis cleaner.
 
@@ -84,8 +87,9 @@ nodes and accounts. I can name the network anything I want, have fun with it!
 
 13. Export genesis configurations. This will fail to create two of the files, but you only need `week18homework.json`.
 
-* Delete/ignore the `week18homework-harmony.json` file.
+* Delete/ignore the `week18homework-harmony.json` file. You should have something similar to below:
 
+![puppeth](Screenshots/create_json.jpg)
 
 
 14. Initialize each node with the new `week18homework.json` with `geth` using the following commands, one per node:
@@ -117,7 +121,7 @@ nodes and accounts. I can name the network anything I want, have fun with it!
 
 > ./geth --datadir week18homework/node2 --unlock "0x3525Bb83b6a3F3393F47678a9bc42c359a66692D" --mine --port 30304 --bootnodes "enode://4f8ade57ff7044ea9b40f93d483b3a983c683f87d283feb932f43c387819a3813324f99024eb1fd61ea729b23472e3e6eeac5a966b09aac208bc51bb03f66fff@127.0.0.1:30303" --ipcdisable --allow-insecure-unlock
 
-* "" after --unlock should be replaced with the Node2 account create in step 4. "" after `--bootnodes` should be populated from the output info from Node 1 initialise, use green `self` node where it starts with `enode` as value from Node 1
+* "" after --unlock should be replaced with the Node2 account create in step 4. "" after `--bootnodes` should be populated from the output info from Node 1 initialise, use green `self` node where it starts with `enode` as value from Node 1 from your first Git Bash window.
 
 
 ![node1-initialise](Screenshots/node2_running.jpg)
@@ -132,34 +136,56 @@ nodes and accounts. I can name the network anything I want, have fun with it!
 ![node1-initialise](Screenshots/functioning_node_1-2.jpg)
 
 
-### Send a test transaction
+### **Send a test transaction**
 
-* Use the MyCrypto GUI wallet to connect to the node with the exposed RPC port.
-
-* You will need to use a custom network, and include the chain ID, and use ETH as the currency.
-
-![node1-initialise](Screenshots/mm_network.jpg)
-
-* Import the keystore file from the `node1/keystore` directory into MyCrypto. This will import the private key.
+17. Open MetaMask in your google extension. Navigate to `Settings` from the circle icon on the top right hand corner such as below:
 
 ![node1-initialise](Screenshots/importAccount.jpg)
 
+18. You will need to use a custom network, and include the chain ID, and use ETH as the currency. Please make sure that the Chain ID is the same as you have entered in step 4 when you're creating the genesis. Here I have used `334`
 
-* Send a transaction from the `node1` account to the `node2` account.
+![node1-initialise](Screenshots/mm_network.jpg)
+
+
+
+19. Once done with setting up network. Using the similar method to Step 17, navigate to `Import Account`. Here you will navigate to  `node1/keystore` directory and select the file that starts with "UTC". This will import the private key, give it some time as it may appear in MetaMask that nothing is working. Do this for both nodes 1 and 2.
 
 ![node1-initialise](Screenshots/importAccountJSON.jpg)
 
-* Copy the transaction hash and paste it into the "TX Status" section of the app, or click "TX Status" in the popup.
 
-* Screenshot the transaction metadata (status, tx hash, block number, etc) and save it to your Screenshots folder.
+20. Send a transaction from the `node1` account to the `node2` account in MetaMask by clicking on `Send`. If you have set this up correctly as per instructions, you should have Node1 populated with a huge amount ETH. Use Node1 to start a transaction.
+
+![node1-initialise](Screenshots/send.jpg)
+
+
+
+21. Once `Send` is pressed, there will be options to move coins to other accounts, you can simply choose the option of transferring between accounts or paste the Account '0x' into recipient field as per below, enter the amount and press `Next`
+
+![node1-initialise](Screenshots/sending.jpg)
+
+22. You will be returned to the account view and under the `Activity` tab, you will see your transaction sitting in Pending mode will your miner do their thing. Click on the transaction that you have just created, it everything is working, it should look something like below:
+
+![node1-initialise](Screenshots/txn1-2.jpg)    
+
+* If there's no movement of coins, terminate the two nodes by pressing `Control + C`, rerun the commands for both Nodes 1 and 2 paying special attention to node 2 that it may require an extra nudge by pressing `Enter` after the Node 2 have started up in Git Bash. Once there's a scrolling prompt of block numbers incrementally being mined, it's an clear indication that all systems are working.
+
+
+
+
+
+### **Send test transaction from a different node**
+
+23. If you haven't done so, go back to step 4 and create another account. This is to create a new Account called Node 3, without opening a new Git Bash, you can now import the account into Metamask using step 19. Now you're ready to transfer coins into another node. Repeat steps 20 to 22 making sure you select the new account in the recipient. Here is an example from Node 1 -> 3:
+
+
+![node1-initialise](Screenshots/txn1-3.jpg)    
+
+
+* Here is an example of Node 3 -> 1:
+
+![node1-initialise](Screenshots/txn3-1.jpg)    
 
 * Celebrate, you just created a blockchain and sent a transaction!
 
+### **Message will now self terminate**
 
-
-
-### Send test transaction from a different node
-
-
-
-Message will not self terminate
