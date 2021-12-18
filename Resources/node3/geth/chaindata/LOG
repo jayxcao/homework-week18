@@ -1,0 +1,38 @@
+=============== Dec 18, 2021 (AEDT) ===============
+21:25:38.482884 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+21:25:38.486356 db@open opening
+21:25:38.487347 version@stat F·[] S·0B[] Sc·[]
+21:25:38.489331 db@janitor F·2 G·0
+21:25:38.489331 db@open done T·2.9755ms
+21:25:38.499252 db@close closing
+21:25:38.499252 db@close done T·0s
+=============== Dec 18, 2021 (AEDT) ===============
+21:26:27.878133 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+21:26:27.878599 version@stat F·[] S·0B[] Sc·[]
+21:26:27.878599 db@open opening
+21:26:27.878599 journal@recovery F·1
+21:26:27.892268 journal@recovery recovering @1
+21:26:27.894309 memdb@flush created L0@2 N·12 S·853B "H\xd0\xd3..nCw,v5":"sec..h\x9bn,v1"
+21:26:27.901196 version@stat F·[1] S·853B[853B] Sc·[0.25]
+21:26:27.907097 db@janitor F·3 G·0
+21:26:27.907097 db@open done T·28.4984ms
+=============== Dec 18, 2021 (AEDT) ===============
+21:26:43.351115 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+21:26:43.351612 version@stat F·[1] S·853B[853B] Sc·[0.25]
+21:26:43.351612 db@open opening
+21:26:43.351612 journal@recovery F·1
+21:26:43.358060 journal@recovery recovering @3
+21:26:43.362028 memdb@flush created L0@5 N·3 S·497B "Dat..ion,v14":"cli..nCw,v16"
+21:26:43.368971 version@stat F·[2] S·1KiB[1KiB] Sc·[0.50]
+21:26:43.374924 db@janitor F·4 G·0
+21:26:43.374924 db@open done T·23.3123ms
+=============== Dec 18, 2021 (AEDT) ===============
+21:39:27.733085 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+21:39:27.733612 version@stat F·[2] S·1KiB[1KiB] Sc·[0.50]
+21:39:27.733612 db@open opening
+21:39:27.733612 journal@recovery F·1
+21:39:27.740050 journal@recovery recovering @6
+21:39:27.749948 memdb@flush created L0@8 N·13 S·706B "H\x88\xc5..\x005/,v26":"r\x00\x00..\x005/,v28"
+21:39:27.756396 version@stat F·[3] S·2KiB[2KiB] Sc·[0.75]
+21:39:27.762348 db@janitor F·5 G·0
+21:39:27.762348 db@open done T·28.7361ms

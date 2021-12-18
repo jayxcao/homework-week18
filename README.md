@@ -142,7 +142,7 @@ nodes and accounts. I can name the network anything I want, have fun with it!
 
 ![node1-initialise](Screenshots/importAccount.jpg)
 
-18. You will need to use a custom network, and include the chain ID, and use ETH as the currency. Please make sure that the Chain ID is the same as you have entered in step 4 when you're creating the genesis. Here I have used `334`
+18. You will need to use a custom network, and include the chain ID, and use ETH as the currency. Please make sure that the Chain ID is the same as you have entered in step 4 when you're creating the genesis. Here I have used `334`.
 
 ![node1-initialise](Screenshots/mm_network.jpg)
 
@@ -185,7 +185,32 @@ nodes and accounts. I can name the network anything I want, have fun with it!
 
 ![node1-initialise](Screenshots/txn3-1.jpg)    
 
-* Celebrate, you just created a blockchain and sent a transaction!
 
-### **Message will now self terminate**
+* Here is an example of Node 2 -> 3:
+
+![node1-initialise](Screenshots/txn2-3.jpg)    
+
+
+* Celebrate, you just created a blockchain and sent a transaction into different nodes!
+
+
+
+### **References**
+
+**Node 1:**
+Public address of the key:   `0xAca3A379CBE51B955cc158274bF33caC30FfFf0C`
+Path of the secret key file: week18homework\node1\keystore\UTC--2021-12-18T09-56-42.277203900Z--aca3a379cbe51b955cc158274bf33cac30ffff0c
+
+
+**Node 2:**
+Public address of the key:   `0x3525Bb83b6a3F3393F47678a9bc42c359a66692D`
+Path of the secret key file: week18homework\node2\keystore\UTC--2021-12-18T09-57-02.060417300Z--3525bb83b6a3f3393f47678a9bc42c359a66692d
+
+
+**Node 3:**
+Public address of the key:   `0x19134b14dcaF9Cf67c24624866772dF236d2F28a`
+Path of the secret key file: week18homework\node3\keystore\UTC--2021-12-18T10-24-54.444529100Z--19134b14dcaf9cf67c24624866772df236d2f28a
+
+
+## **Message will now self terminate**
 
